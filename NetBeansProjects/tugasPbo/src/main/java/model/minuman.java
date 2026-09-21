@@ -8,7 +8,7 @@ package model;
  *
  * @author MSI THIN 15
  */
-public class minuman extends Produk {
+public class minuman extends produk {
  
     public static final double MARGIN = 0.20;          // keuntungan 20%
     public static final double BIAYA_PENDINGINAN = 1000; // tambahan jika dingin
