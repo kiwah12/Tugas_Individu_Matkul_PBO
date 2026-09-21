@@ -8,7 +8,7 @@ package model;
  *
  * @author MSI THIN 15
  */
-public class Rokok extends produk {
+public class Rokok extends Produk {
  
     public static final double MARGIN = 0.10;
     public static final double CUKAI_PER_BATANG = 250;
