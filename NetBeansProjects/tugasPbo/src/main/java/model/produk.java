@@ -3,18 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 /**
  *
  * @author MSI THIN 15
  */
-public abstract class Produk {
+public abstract class produk {
     private String kode;
     private String nama;
     private double hargaBeli;
     private int stok;
  
-    public Produk(String kode, String nama, double hargaBeli, int stok) {
+    public produk(String kode, String nama, double hargaBeli, int stok) {
         this.kode = kode;
         this.nama = nama;
         this.hargaBeli = hargaBeli;
