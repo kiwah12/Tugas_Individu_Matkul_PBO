@@ -276,74 +276,35 @@ if (p instanceof Rokok r) {
 
 ## 5. Screenshot Program Berjalan
 
-> Jalankan program di terminal, ambil screenshot, simpan di folder
-> `screenshot/`, lalu tautkan di bawah ini. Minimal sertakan menu utama,
-> proses Create, Read, Update, Delete, dan transaksi.
+**`Menu Utama`**
 
-| Bagian | Screenshot |
-|---|---|
-| Menu Utama | `![Menu Utama](screenshot/01-menu.png)` |
-| Create – Tambah Produk | `![Tambah Produk](screenshot/02-create.png)` |
-| Read – Daftar Produk | `![Daftar Produk](screenshot/03-read.png)` |
-| Update – Ubah Produk | `![Ubah Produk](screenshot/04-update.png)` |
-| Delete – Hapus Produk | `![Hapus Produk](screenshot/05-delete.png)` |
-| Transaksi & Struk | `![Transaksi](screenshot/06-transaksi.png)` |
+<img width="1000" height="328" alt="image" src="https://github.com/user-attachments/assets/a8ba2b35-07b6-459c-b452-48abd64076b4" />
 
-(Hapus tanda backtick pada kolom Screenshot agar gambarnya tampil.)
+**`Daftar Produk` (Sebelum Tambah Produk)**
 
-Contoh keluaran program saat menu **Daftar Seluruh Produk** dipilih:
+<img width="912" height="327" alt="image" src="https://github.com/user-attachments/assets/473d3b56-eb9d-4db0-a9c3-1416cf46afc0" />
 
-```
-========================================================================
-   TOKO MADURA BAROKAH    24 JAM
-   Jl. Ir. H. Juanda No. 12, Samarinda
-========================================================================
-  1. Tambah Produk          (Create)
-  2. Daftar Seluruh Produk  (Read)
-  3. Lihat Detail Produk    (Read)
-  4. Cari Produk            (Read)
-  5. Ubah Data Produk       (Update)
-  6. Hapus Produk           (Delete)
-  7. Transaksi Penjualan
-  8. Laporan Toko
-  0. Keluar
-========================================================================
-Pilih menu [0-8] : 2
+**`Tambah Produk`**
 
->> DAFTAR SELURUH PRODUK
-KODE     NAMA PRODUK            KATEGORI       HARGA JUAL    STOK  STATUS
-------------------------------------------------------------------------
-MK001    Indomie Goreng         Makanan           Rp3.500      40  AMAN
-MK002    Roti Sisir Mentega     Makanan           Rp9.200      12  AMAN
-MK003    Gorengan Tempe         Makanan           Rp1.200       5  MENIPIS
-MN001    Teh Botol Sosro 450ml  Minuman           Rp6.400      24  AMAN
-MN002    Aqua Botol 600ml       Minuman           Rp3.600      36  AMAN
-MN003    Kopi Susu Kaleng       Minuman           Rp9.400       4  MENIPIS
-RK001    Sampoerna Mild 16      Rokok            Rp31.600      10  AMAN
-RK002    Djarum Super 12        Rokok            Rp25.000       3  MENIPIS
-------------------------------------------------------------------------
-Total data : 8 produk
-```
+<img width="927" height="312" alt="image" src="https://github.com/user-attachments/assets/e30d1224-aa76-4726-8149-79b9d05c7d19" />
 
-Contoh struk transaksi:
+**`Daftar Produk` (Sesudah Tambah Produk)**
 
-```
-========================================
-        STRUK TOKO MADURA BAROKAH 24 JAM
-========================================
-Sampoerna Mild 16     2 x   Rp31.600
-----------------------------------------
-TOTAL                           Rp63.200
-TUNAI                          Rp100.000
-KEMBALI                         Rp36.800
-========================================
-     Terima kasih, sisa stok: 8
-```
+<img width="1015" height="320" alt="image" src="https://github.com/user-attachments/assets/cf6ebb3f-fd23-406c-ae18-cdbad42a0c47" />
 
----
+**`Ubah Produk`**
 
-## 7. Catatan
+<img width="1167" height="617" alt="image" src="https://github.com/user-attachments/assets/1e6a273e-0774-4482-b2c4-465435e42515" />
 
-Data produk disimpan di memori (`ArrayList`) selama program berjalan, sesuai
-lingkup tugas berbasis konsol. Pengembangan selanjutnya dapat ditambahkan
-penyimpanan ke file atau database.
+**`Hapus Produk`**
+
+<img width="797" height="167" alt="image" src="https://github.com/user-attachments/assets/36548461-00db-4047-800e-9ed7045e9891" />
+
+**`Daftar Produk` (Sebelum dihapus Produk)**
+
+<img width="1015" height="320" alt="image" src="https://github.com/user-attachments/assets/cf6ebb3f-fd23-406c-ae18-cdbad42a0c47" />
+
+**`Daftar Produk` (Sesudah dihapus Produk)**
+
+<img width="980" height="325" alt="image" src="https://github.com/user-attachments/assets/6d4453e8-a598-4924-ad17-fbe2ca7a42f8" />
+
