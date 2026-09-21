@@ -308,6 +308,7 @@ if (p instanceof Rokok r) {
 
 <img width="980" height="325" alt="image" src="https://github.com/user-attachments/assets/6d4453e8-a598-4924-ad17-fbe2ca7a42f8" />
 
-**`struk transaksi`**
+**`struk & transaksi`**
+
 <img width="1212" height="591" alt="image" src="https://github.com/user-attachments/assets/d3197fbb-a151-4537-90f3-77713d47744a" />
 
