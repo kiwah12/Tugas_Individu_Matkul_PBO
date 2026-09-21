@@ -8,7 +8,7 @@ package model;
  *
  * @author MSI THIN 15
  */
-public class makanan extends produk {
+public class makanan extends Produk {
  
     public static final double MARGIN = 0.15;
  
