@@ -1,23 +1,18 @@
-# Sistem Manajemen Toko Madura (Java CLI - OOP)
+# Sistem Manajemen Toko Madura 
 
 Tugas Individu Mata Kuliah **Pemrograman Berorientasi Objek**
-Aplikasi berbasis konsol (Command Line Interface) yang dibangun dengan bahasa Java
-dan menerapkan prinsip Pemrograman Berorientasi Objek (inheritance, polymorphism,
-encapsulation, abstraction) serta dilengkapi fitur **CRUD**.
 
----
+----
 
 ## 1. Identitas Mahasiswa
 
 | Keterangan | Isi |
 |---|---|
-| Nama | **[TULIS NAMA LENGKAP ANDA]** |
-| NIM | **[TULIS NIM ANDA]** |
-| Kelas / Prodi | **[TULIS KELAS / PRODI]** |
+| Nama | **Muhammad Risky Alpianur** |
+| NIM | **2509116101** |
+| Prodi | **Sistem Informasi** |
 | Mata Kuliah | Pemrograman Berorientasi Objek |
 | Studi Kasus | Sistem Manajemen Toko Madura |
-
-> Ganti bagian di dalam kurung siku dengan data Anda sebelum repository dikumpulkan.
 
 ---
 
@@ -27,23 +22,21 @@ Toko Madura adalah toko kelontong yang buka 24 jam dan menjual bermacam barang
 kebutuhan harian. Pencatatan barang yang masih manual membuat pemilik toko sulit
 mengetahui stok yang menipis, harga jual yang seharusnya, serta rekap penjualan.
 
-Aplikasi ini dibuat untuk membantu pemilik toko mengelola data barang dagangan
+Program ini dibuat untuk membantu pemilik toko mengelola data barang dagangan
 melalui menu konsol. Barang di toko dikelompokkan menjadi tiga jenis yang punya
 karakteristik dan aturan harga berbeda:
 
 | Jenis | Atribut khusus | Aturan harga jual |
 |---|---|---|
-| Makanan | tanggal kedaluwarsa, kemasan/curah | harga beli + margin 15% |
-| Minuman | volume (ml), dingin/suhu ruang | harga beli + margin 20% + Rp1.000 bila dingin |
-| Rokok | merek, isi per bungkus | harga beli + margin 10% + cukai Rp250/batang, minimal usia pembeli 18 tahun |
+| makanan | tanggal kedaluwarsa, kemasan/curah | harga beli + margin 15% |
+| minuman | volume (ml), dingin/suhu ruang | harga beli + margin 20% + Rp1.000 bila dingin |
+| Rokok | merek, isi per bungkus | harga beli + margin 10% + cukai Rp250/batang, minimal usia pembeli 18 tahun |.
 
-Perbedaan aturan inilah yang membuat konsep **inheritance** dan **polymorphism**
-benar-benar terpakai: semuanya adalah "produk", tetapi cara menghitung harga
-jualnya berbeda-beda.
+### Fitur Program
 
-### Fitur Aplikasi
+adapun untuk fitur program sebagai berikut:
 
-1. **Create** – Tambah produk baru (memilih kategori Makanan / Minuman / Rokok).
+1. **Create** – Tambah produk baru (memilih kategori makanan / minuman / Rokok).
 2. **Read** – Menampilkan seluruh produk dalam bentuk tabel, melihat detail satu
    produk, dan mencari produk berdasarkan nama atau kode.
 3. **Update** – Mengubah nama, harga beli, stok, serta atribut khusus tiap kategori.
@@ -78,7 +71,7 @@ jualnya berbeda-beda.
         +--------------------+---+---+--------------------+
         |                    |                            |
 +-----------------+  +------------------+      +--------------------+
-|    Makanan      |  |     Minuman      |      |       Rokok        |   <-- SUB CLASS
+|    makanan      |  |     minuman      |      |       Rokok        |   <-- SUB CLASS
 +-----------------+  +------------------+      +--------------------+
 | - tglKadaluarsa |  | - volumeMl : int |      | - merek : String   |
 | - kemasan       |  | - dingin : bool  |      | - jumlahBatang     |
@@ -89,7 +82,7 @@ jualnya berbeda-beda.
 +-----------------+  +------------------+      +--------------------+
 
         +-------------------------------+              +-----------+
-        |         TokoMadura            |<>----------- |  Produk   |
+        |           dataToko            |<>----------- |  Produk   |
         +-------------------------------+  1        *  +-----------+
         | - daftarProduk : List<Produk> |
         | - totalPendapatan : double    |
@@ -123,12 +116,12 @@ classDiagram
         +kurangiStok(int) boolean
         +tampilkanDetail() void
     }
-    class Makanan {
+    class makanan {
         -String tanggalKadaluarsa
         -boolean kemasan
         +hitungHargaJual() double
     }
-    class Minuman {
+    class minuman {
         -int volumeMl
         -boolean dingin
         +hitungHargaJual() double
@@ -139,7 +132,7 @@ classDiagram
         +hitungHargaJual() double
         +bolehDibeli(int) boolean
     }
-    class TokoMadura {
+    class dataToko   {
         -List~Produk~ daftarProduk
         +tambahProduk(Produk) boolean
         +cariByKode(String) Produk
@@ -147,11 +140,11 @@ classDiagram
         +hapusProduk(String) boolean
         +jualProduk(String, int) double
     }
-    Produk <|-- Makanan
-    Produk <|-- Minuman
+    Produk <|-- makanan
+    Produk <|-- minuman
     Produk <|-- Rokok
-    TokoMadura o-- Produk
-    Main ..> TokoMadura
+    dataToko o-- Produk
+    Main ..> dataToko
 ```
 
 ### Daftar File
@@ -159,21 +152,21 @@ classDiagram
 | File | Peran |
 |---|---|
 | `src/Produk.java` | Super-class abstrak, atribut & perilaku umum semua produk |
-| `src/Makanan.java` | Sub-class Produk |
-| `src/Minuman.java` | Sub-class Produk |
+| `src/makanan.java` | Sub-class Produk |
+| `src/minuman.java` | Sub-class Produk |
 | `src/Rokok.java` | Sub-class Produk |
-| `src/TokoMadura.java` | Pengelola data (operasi CRUD + transaksi + laporan) |
-| `src/Main.java` | Menu CLI / titik awal program |
+| `src/dataToko.java` | Pengelola data (operasi CRUD + transaksi + laporan) |
+| `src/main.java` | Menu CLI / titik awal program |
 
 ---
 
 ## 4. Penjelasan Bagian Kode yang Menerapkan Inheritance
 
-Relasi inheritance pada program ini adalah **`Produk` (super-class)** yang
-diturunkan menjadi **`Makanan`, `Minuman`, dan `Rokok` (sub-class)** menggunakan
-kata kunci `extends`.
+Relasi inheritance pada program ini adalah **Produk (super-class)** yang
+diturunkan menjadi **makanan, minuman, dan Rokok (sub-class)** menggunakan
+kata kunci extends.
 
-**a. Super-class `Produk` (file `src/Produk.java`)**
+**a. Super-class Produk (file src/Produk.java)**
 
 ```java
 public abstract class Produk {
@@ -195,17 +188,17 @@ public abstract class Produk {
 }
 ```
 
-Kelas ini dibuat `abstract` karena "produk" hanyalah konsep umum; yang benar-benar
+Kelas ini dibuat abstract karena "produk" hanyalah konsep umum; yang benar-benar
 dijual di toko selalu berupa makanan, minuman, atau rokok.
 
 **b. Sub-class memanggil constructor super-class dengan `super(...)`**
 
 ```java
-public class Minuman extends Produk {
+public class minuman extends Produk {
     private int volumeMl;
     private boolean dingin;
 
-    public Minuman(String kode, String nama, double hargaBeli, int stok,
+    public minuman(String kode, String nama, double hargaBeli, int stok,
                    int volumeMl, boolean dingin) {
         super(kode, nama, hargaBeli, stok);   // atribut umum diurus super-class
         this.volumeMl = volumeMl;             // atribut khusus sub-class
@@ -217,7 +210,7 @@ public class Minuman extends Produk {
 **c. Method overriding: aturan harga tiap sub-class berbeda**
 
 ```java
-// Makanan.java
+// makanan.java
 @Override
 public double hitungHargaJual() {
     return Math.ceil(getHargaBeli() * 1.15 / 100.0) * 100;      // margin 15%
@@ -262,11 +255,11 @@ for (Produk p : data) {
 }                                          // sesuai kelas aslinya
 ```
 
-Objek `Makanan`, `Minuman`, dan `Rokok` disimpan dalam satu `List<Produk>` yang
+Objek Makanan, Minuman, dan Rokok disimpan dalam satu List<Produk> yang
 sama. Saat `hitungHargaJual()` dipanggil, Java otomatis menjalankan versi method
 milik sub-class masing-masing (*dynamic method dispatch*).
 
-**f. Pemakaian atribut khusus sub-class dengan `instanceof`**
+**f. Pemakaian atribut khusus sub-class dengan instanceof**
 
 ```java
 // Main.java - validasi usia hanya berlaku untuk Rokok
@@ -281,28 +274,7 @@ if (p instanceof Rokok r) {
 
 ---
 
-## 5. Cara Menjalankan Program
-
-Pastikan **JDK 17 atau lebih baru** sudah terpasang (`java -version`).
-
-```bash
-# 1. Clone repository
-git clone https://github.com/USERNAME/toko-madura-oop.git
-cd toko-madura-oop
-
-# 2. Compile seluruh source code ke folder out
-javac -d out src/*.java
-
-# 3. Jalankan program
-java -cp out Main
-```
-
-Alternatif lewat IDE (IntelliJ IDEA / NetBeans / VS Code): buka folder project,
-lalu jalankan `Main.java`.
-
----
-
-## 6. Screenshot Program Berjalan
+## 5. Screenshot Program Berjalan
 
 > Jalankan program di terminal, ambil screenshot, simpan di folder
 > `screenshot/`, lalu tautkan di bawah ini. Minimal sertakan menu utama,
@@ -323,7 +295,7 @@ Contoh keluaran program saat menu **Daftar Seluruh Produk** dipilih:
 
 ```
 ========================================================================
-   TOKO MADURA BAROKAH 24 JAM
+   TOKO MADURA BAROKAH    24 JAM
    Jl. Ir. H. Juanda No. 12, Samarinda
 ========================================================================
   1. Tambah Produk          (Create)
