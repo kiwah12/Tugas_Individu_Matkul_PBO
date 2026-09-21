@@ -10,13 +10,13 @@ import java.util.Locale;
  *
  * @author MSI THIN 15
  */
-public abstract class produk {
+public abstract class Produk {
     private String kode;
     private String nama;
     private double hargaBeli;
     private int stok;
  
-    public produk(String kode, String nama, double hargaBeli, int stok) {
+    public Produk(String kode, String nama, double hargaBeli, int stok) {
         this.kode = kode;
         this.nama = nama;
         this.hargaBeli = hargaBeli;
