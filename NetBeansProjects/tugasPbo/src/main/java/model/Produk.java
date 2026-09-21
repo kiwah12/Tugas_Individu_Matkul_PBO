@@ -1,21 +1,23 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package model;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
-
 /**
- * SUPER CLASS (abstract)
- * Kelas induk yang menjadi dasar dari seluruh jenis produk yang dijual
- * di Toko Madura. Kelas ini menyimpan atribut umum (kode, nama, harga
- * beli, stok) dan perilaku umum yang diwarisi oleh sub-class.
+ *
+ * @author MSI THIN 15
  */
 public abstract class Produk {
-
+ 
     // ===== Encapsulation: atribut dibuat private, diakses lewat getter/setter =====
     private String kode;
     private String nama;
     private double hargaBeli;
     private int stok;
-
+ 
     public Produk(String kode, String nama, double hargaBeli, int stok) {
         this.kode = kode;
         this.nama = nama;
@@ -23,21 +25,13 @@ public abstract class Produk {
         this.stok = stok;
     }
 
-    // ===== Method abstrak: WAJIB diimplementasikan oleh setiap sub-class =====
-    /** Nama kategori produk (Makanan / Minuman / Rokok). */
     public abstract String getKategori();
-
-    /** Perhitungan harga jual, aturannya berbeda pada tiap sub-class. */
     public abstract double hitungHargaJual();
-
-    /** Informasi khusus milik masing-masing sub-class. */
     public abstract String getInfoTambahan();
-
-    // ===== Method yang diwariskan apa adanya ke sub-class =====
     public double getTotalNilaiStok() {
         return hitungHargaJual() * stok;
     }
-
+ 
     public boolean kurangiStok(int jumlah) {
         if (jumlah <= 0 || jumlah > stok) {
             return false;
@@ -45,27 +39,25 @@ public abstract class Produk {
         stok -= jumlah;
         return true;
     }
-
+ 
     public void tambahStok(int jumlah) {
         if (jumlah > 0) {
             stok += jumlah;
         }
     }
-
+ 
     public String getStatusStok() {
         if (stok == 0) return "HABIS";
         if (stok <= 5) return "MENIPIS";
         return "AMAN";
     }
 
-    /** Baris ringkas untuk ditampilkan di dalam tabel daftar produk. */
     public String toBarisTabel() {
         return String.format("%-8s %-22s %-10s %14s %7d  %-8s",
                 kode, potong(nama, 22), getKategori(),
                 rupiah(hitungHargaJual()), stok, getStatusStok());
     }
 
-    /** Detail lengkap sebuah produk. Memanfaatkan method abstrak (polymorphism). */
     public void tampilkanDetail() {
         System.out.println("  Kode            : " + kode);
         System.out.println("  Nama Produk     : " + nama);
@@ -76,24 +68,24 @@ public abstract class Produk {
         System.out.println("  Info Tambahan   : " + getInfoTambahan());
         System.out.println("  Nilai Stok      : " + rupiah(getTotalNilaiStok()));
     }
-
+ 
     @Override
     public String toString() {
         return kode + " - " + nama + " (" + getKategori() + ")";
     }
-
+ 
     // ===== Getter & Setter =====
     public String getKode() { return kode; }
-
+ 
     public String getNama() { return nama; }
     public void setNama(String nama) { this.nama = nama; }
-
+ 
     public double getHargaBeli() { return hargaBeli; }
     public void setHargaBeli(double hargaBeli) { this.hargaBeli = hargaBeli; }
-
+ 
     public int getStok() { return stok; }
     public void setStok(int stok) { this.stok = stok; }
-
+ 
     // ===== Utility =====
     public static String rupiah(double nilai) {
         DecimalFormatSymbols simbol = new DecimalFormatSymbols(Locale.ROOT);
@@ -101,9 +93,10 @@ public abstract class Produk {
         DecimalFormat df = new DecimalFormat("#,##0", simbol);
         return "Rp" + df.format(nilai);
     }
-
+ 
     protected static String potong(String teks, int panjang) {
         if (teks == null) return "";
         return teks.length() <= panjang ? teks : teks.substring(0, panjang - 1) + "…";
     }
 }
+ 
