@@ -308,3 +308,15 @@ if (p instanceof Rokok r) {
 
 <img width="980" height="325" alt="image" src="https://github.com/user-attachments/assets/6d4453e8-a598-4924-ad17-fbe2ca7a42f8" />
 
+**`struk transaksi`**
+
+========================================
+        STRUK TOKO MADURA BAROKAH 24 JAM
+========================================
+Sampoerna Mild 16     2 x   Rp31.600
+----------------------------------------
+TOTAL                           Rp63.200
+TUNAI                          Rp100.000
+KEMBALI                         Rp36.800
+========================================
+     Terima kasih, sisa stok: 8
